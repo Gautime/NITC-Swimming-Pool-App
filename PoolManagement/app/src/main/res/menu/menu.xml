@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".checkin">
+
+    <item android:id="@+id/action_adduser"
+        android:title="@string/action_adduser"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_payment"
+        android:title="@string/action_payment"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_visitors"
+        android:title="@string/action_visitors"
+        app:showAsAction="never"/>
+
+</menu>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "987333911249",
+    "firebase_url": "https://swimming-pool-5fc20.firebaseio.com",
+    "project_id": "swimming-pool-5fc20",
+    "storage_bucket": "swimming-pool-5fc20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987333911249:android:7e5585b8804e492bc29bf0",
+        "android_client_info": {
+          "package_name": "com.example.poolmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987333911249-g17q29hrbaqe9nlh5pcgfkse8bnl17in.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzz56jQMLLT6ALeviT4rZrUQTOToz9o3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987333911249-g17q29hrbaqe9nlh5pcgfkse8bnl17in.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
