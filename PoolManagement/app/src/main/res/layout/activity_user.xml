@@ -8,37 +8,38 @@
 
     <TextView
         android:id="@+id/text_user"
-        android:layout_width="wrap_content"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center_horizontal"
         android:text="@string/text_user"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_checkin" />
 
     <TextView
         android:id="@+id/text_card_user"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="32dp"
         android:text="@string/text_card_user"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_user" />
 
     <TextView
         android:id="@+id/text_name_user"
-        android:layout_width="60dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="34dp"
         android:text="@string/text_name_user"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +47,11 @@
 
     <TextView
         android:id="@+id/text_contact_user"
-        android:layout_width="68dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="34dp"
         android:text="@string/text_contact_user"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,11 +59,11 @@
 
     <TextView
         android:id="@+id/text_gender_user"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="34dp"
         android:text="@string/text_gender_user"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,11 +71,11 @@
 
     <TextView
         android:id="@+id/text_visits_user"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="34dp"
         android:text="@string/text_visits_user"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,11 +83,11 @@
 
     <TextView
         android:id="@+id/text_validity_user"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="34dp"
         android:text="@string/text_validity_user"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,12 +97,12 @@
         android:id="@+id/editText_card_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/editText_card_user"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.67"
         app:layout_constraintStart_toEndOf="@+id/text_card_user"
         app:layout_constraintTop_toBottomOf="@+id/text_user" />
 
@@ -109,12 +110,12 @@
         android:id="@+id/editText_name_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/editText_name_user"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.669"
         app:layout_constraintStart_toEndOf="@+id/text_name_user"
         app:layout_constraintTop_toBottomOf="@+id/editText_card_user" />
 
@@ -122,12 +123,12 @@
         android:id="@+id/editTextgender_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/editText_gender_user"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.663"
         app:layout_constraintStart_toEndOf="@+id/text_gender_user"
         app:layout_constraintTop_toBottomOf="@+id/editText_contact_user" />
 
@@ -135,51 +136,67 @@
         android:id="@+id/button_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="newuser"
         android:text="@string/button_user"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_validity_user"
-        android:onClick="newuser"/>
+        app:layout_constraintVertical_bias="0.614" />
 
     <EditText
         android:id="@+id/editText_validity_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/editText_validity_user"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.663"
         app:layout_constraintStart_toEndOf="@+id/text_validity_user"
-        app:layout_constraintTop_toBottomOf="@+id/editText_visits_user" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_intvisits_user" />
 
     <EditText
         android:id="@+id/editText_contact_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/editText_contact_user"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toEndOf="@+id/text_contact_user"
         app:layout_constraintTop_toBottomOf="@+id/editText_name_user" />
 
     <EditText
-        android:id="@+id/editText_visits_user"
+        android:id="@+id/editText_intvisits_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/editText_visits_user"
-        android:inputType="numberDecimal"
+        android:hint="@string/editText_intvisits_user"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/text_visits_user"
         app:layout_constraintTop_toBottomOf="@+id/editTextgender_user" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_checkin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#8797F3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:title="Pool Management" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -68,4 +68,5 @@
     <string name="editText_validity_user">Date of expiry</string>
     <string name="editText_contact_user">Enter contact no.</string>
     <string name="editText_visits_user">Visits left</string>
+    <string name="editText_intvisits_user">Enter visits</string>
 </resources>

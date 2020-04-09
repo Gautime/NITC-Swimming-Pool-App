@@ -1,10 +1,12 @@
 package com.example.poolmanagement;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -84,14 +86,25 @@ public class checkin extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if(document.exists()) {
                         //Toast.makeText(checkin.this,"User found",Toast.LENGTH_SHORT).show();
-                        int visit = (int) document.get("Visits");
+                        int visit =  document.getLong("Visits").intValue();
+                        Toast.makeText(checkin.this,"Visits are:"+visit,Toast.LENGTH_SHORT).show();
+
                         if(visit>0) {
                             visit= visit -1;
                             Map<Object, Integer> map = new HashMap<>();
                             map.put("Visits", visit );
                             userref.document(cardno).set(map, SetOptions.merge());
-                            Toast.makeText(checkin.this,"Reducing one visit",Toast.LENGTH_SHORT).show();
-                            finish();
+                            AlertDialog alertDialog = new AlertDialog.Builder(checkin.this).create();
+                            alertDialog.setTitle("Checked in!");
+                            alertDialog.setMessage("Remaining visits are : "+visit);
+                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog.show();
+                          //  Toast.makeText(checkin.this,"Reducing one visit, new visits"+visit,Toast.LENGTH_LONG).show();
                         }
 
                         else if(visit==0) {

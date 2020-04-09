@@ -3,19 +3,11 @@ package com.example.poolmanagement;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
-import com.google.firebase.firestore.DocumentSnapshot;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -43,7 +35,7 @@ public class User extends AppCompatActivity {
         name = (EditText) findViewById(R.id.editText_name_user);
         contact = (EditText) findViewById(R.id.editText_contact_user);
         gender = (EditText) findViewById(R.id.editTextgender_user);
-        visits = (EditText) findViewById(R.id.editText_visits_user);
+        visits = (EditText) findViewById(R.id.editText_intvisits_user);
         validity = (EditText) findViewById(R.id.editText_validity_user);
         db = FirebaseFirestore.getInstance();
 
@@ -54,7 +46,7 @@ public class User extends AppCompatActivity {
         final String user = name.getText().toString();
         final String contactno = contact.getText().toString();
         final String genders = gender.getText().toString();
-        final String visit = visits.getText().toString();
+        final int visit = Integer.parseInt(visits.getText().toString());
         final String valid = validity.getText().toString();
 
         data.put("card",cardno);

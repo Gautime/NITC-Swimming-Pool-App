@@ -8,131 +8,143 @@
 
     <TextView
         android:id="@+id/text_payment"
-        android:layout_width="wrap_content"
+        android:layout_width="416dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
         android:text="@string/text_payment"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_checkin" />
 
     <TextView
         android:id="@+id/textcard_payment"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="204dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="32dp"
         android:text="@string/textcard_payment"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_payment" />
 
     <EditText
         android:id="@+id/editText_card_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/editText_card_payment"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintHorizontal_bias="0.596"
         app:layout_constraintStart_toEndOf="@+id/textcard_payment"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_payment" />
 
     <TextView
         android:id="@+id/textreceipt_payment"
-        android:layout_width="100dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="28dp"
+        android:layout_marginTop="32dp"
         android:text="@string/textreceipt_payment"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textcard_payment"
-        app:layout_constraintVertical_bias="0.096" />
+        app:layout_constraintTop_toBottomOf="@+id/textcard_payment" />
 
     <TextView
         android:id="@+id/textamount_payment"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="32dp"
         android:text="@string/textamount_payment"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textreceipt_payment"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintTop_toBottomOf="@+id/textreceipt_payment" />
 
     <TextView
         android:id="@+id/textvisits_payment"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="32dp"
         android:text="@string/textvisits_payment"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textamount_payment"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintTop_toBottomOf="@+id/textamount_payment" />
 
     <EditText
         android:id="@+id/editText_receipt_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/editText_receipt_payment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editText_amount_payment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_card_payment"
-        app:layout_constraintVertical_bias="0.379" />
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toEndOf="@+id/textreceipt_payment"
+        app:layout_constraintTop_toBottomOf="@+id/editText_card_payment" />
 
     <EditText
         android:id="@+id/editText_amount_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/editText_amount_payment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.607"
         app:layout_constraintStart_toEndOf="@+id/textamount_payment"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_receipt_payment" />
 
     <EditText
         android:id="@+id/editText_visits_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/editText_visits_payment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.623"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toEndOf="@+id/textvisits_payment"
-        app:layout_constraintTop_toBottomOf="@+id/editText_amount_payment"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_amount_payment" />
 
     <Button
         android:id="@+id/button_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="updatepayment"
         android:text="@string/button_payment"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_visits_payment"
-        android:onClick="updatepayment"/>
+        app:layout_constraintVertical_bias="0.47" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_checkin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#8797F3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:title="Pool Management" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
