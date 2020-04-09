@@ -19,12 +19,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_checkin" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327" />
 
     <Button
         android:id="@+id/button_checkin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@android:style/Widget.Material.Button.Colored"
+        android:layout_width="112dp"
+        android:layout_height="43dp"
+        android:background="@color/colorAccent"
         android:onClick="checkinuser"
         android:text="@string/button_checkin"
         android:textSize="18sp"
@@ -34,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_checkin"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintVertical_bias="0.173" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_checkin"

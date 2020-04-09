@@ -13,13 +13,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +37,9 @@ public class payment extends AppCompatActivity {
     EditText receipt_no;
     EditText  total;
     EditText newvisits;
+    TextView tv_validity;
+    EditText et_validity;
+    DatePickerDialog.OnDateSetListener setListener1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +50,48 @@ public class payment extends AppCompatActivity {
         total = (EditText) findViewById(R.id.editText_amount_payment);
         newvisits = (EditText) findViewById(R.id.editText_visits_payment);
 
+    tv_validity = findViewById(R.id.tv_validity);
+    et_validity = findViewById(R.id.et_validity);
+    Calendar calendar1 = Calendar.getInstance();
+    final int year = calendar1.get(Calendar.YEAR);
+    final int month = calendar1.get(Calendar.MONTH);
+    final int day = calendar1.get(Calendar.DAY_OF_YEAR);
+    tv_validity.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    payment.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, setListener1, year, month, day);
+            datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            datePickerDialog.show();
+        }
+    });
+    setListener1 = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            month = month+1;
+            String date = day+"/"+month+"/"+year;
+            tv_validity.setText(date);
+        }
+    };
+    et_validity.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    payment.this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int day) {
+                    month = month+1;
+                    String date = day+"/"+month+"/"+year;
+                    et_validity.setText(date);
+                }
+            },year,month,day);
+            datePickerDialog.show();
+        }
+    });
+
     }
 
     public int getvisits(String card, FirebaseFirestore db){
-
         db.collection("user").document(card).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/common_google_signin_btn_text_dark_default"
+    android:clipToPadding="false"
     tools:context=".User">
 
     <TextView
@@ -30,6 +32,8 @@
         android:layout_marginTop="32dp"
         android:text="@string/text_card_user"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_user" />
 
@@ -42,7 +46,9 @@
         android:layout_marginTop="34dp"
         android:text="@string/text_name_user"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text_card_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/text_card_user"
         app:layout_constraintTop_toBottomOf="@+id/text_card_user" />
 
     <TextView
@@ -54,7 +60,9 @@
         android:layout_marginTop="34dp"
         android:text="@string/text_contact_user"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text_name_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/text_name_user"
         app:layout_constraintTop_toBottomOf="@+id/text_name_user" />
 
     <TextView
@@ -66,7 +74,9 @@
         android:layout_marginTop="34dp"
         android:text="@string/text_gender_user"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text_contact_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/text_contact_user"
         app:layout_constraintTop_toBottomOf="@+id/text_contact_user" />
 
     <TextView
@@ -78,7 +88,9 @@
         android:layout_marginTop="34dp"
         android:text="@string/text_visits_user"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text_gender_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/text_gender_user"
         app:layout_constraintTop_toBottomOf="@+id/text_gender_user" />
 
     <TextView
@@ -90,8 +102,24 @@
         android:layout_marginTop="34dp"
         android:text="@string/text_validity_user"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/text_visits_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/text_visits_user"
         app:layout_constraintTop_toBottomOf="@+id/text_visits_user" />
+
+
+    <!-- <EditText
+        android:id="@+id/editText_validity_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="@string/editText_validity_user"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_visits_user"
+        app:layout_constraintTop_toBottomOf="@+id/editText_visits_user" /> -->
 
     <EditText
         android:id="@+id/editText_card_user"
@@ -101,10 +129,12 @@
         android:ems="10"
         android:hint="@string/editText_card_user"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/text_card_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.67"
         app:layout_constraintStart_toEndOf="@+id/text_card_user"
-        app:layout_constraintTop_toBottomOf="@+id/text_user" />
+        app:layout_constraintTop_toTopOf="@+id/text_card_user"
+        app:layout_constraintVertical_bias="0.868" />
 
     <EditText
         android:id="@+id/editText_name_user"
@@ -114,10 +144,12 @@
         android:ems="10"
         android:hint="@string/editText_name_user"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.669"
-        app:layout_constraintStart_toEndOf="@+id/text_name_user"
-        app:layout_constraintTop_toBottomOf="@+id/editText_card_user" />
+        app:layout_constraintBottom_toBottomOf="@+id/text_name_user"
+        app:layout_constraintEnd_toEndOf="@+id/editText_card_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_card_user"
+        app:layout_constraintTop_toBottomOf="@+id/editText_card_user"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextgender_user"
@@ -134,6 +166,7 @@
 
     <Button
         android:id="@+id/button_user"
+        style="@android:style/Widget.Material.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="newuser"
@@ -144,21 +177,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_validity_user"
-        app:layout_constraintVertical_bias="0.614" />
+        app:layout_constraintTop_toBottomOf="@+id/et_validityDate"
+        app:layout_constraintVertical_bias="0.356" />
 
     <EditText
-        android:id="@+id/editText_validity_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/editText_validity_user"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.663"
-        app:layout_constraintStart_toEndOf="@+id/text_validity_user"
-        app:layout_constraintTop_toBottomOf="@+id/editText_intvisits_user" />
+        android:id="@+id/et_validityDate"
+        android:layout_width="211dp"
+        android:layout_height="40dp"
+        android:hint="Select Date"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_validity_user"
+        app:layout_constraintEnd_toEndOf="@+id/editText_visits_user"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toStartOf="@+id/editText_visits_user"
+        app:layout_constraintTop_toTopOf="@+id/text_validity_user"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editText_contact_user"
@@ -168,16 +201,18 @@
         android:ems="10"
         android:hint="@string/editText_contact_user"
         android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
-        app:layout_constraintStart_toEndOf="@+id/text_contact_user"
-        app:layout_constraintTop_toBottomOf="@+id/editText_name_user" />
+        app:layout_constraintBottom_toBottomOf="@+id/text_contact_user"
+        app:layout_constraintEnd_toEndOf="@+id/editText_name_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_name_user"
+        app:layout_constraintTop_toTopOf="@+id/text_contact_user"
+        app:layout_constraintVertical_bias="0.883" />
 
     <EditText
         android:id="@+id/editText_intvisits_user"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="@string/editText_intvisits_user"
         android:inputType="number"
@@ -198,5 +233,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/Theme.AppCompat.Light"
         app:title="Pool Management" />
+
+        android:hint="@string/editText_visits_user"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_visits_user"
+        app:layout_constraintEnd_toEndOf="@+id/spinner4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/spinner4"
+        app:layout_constraintTop_toTopOf="@+id/text_visits_user"
+        app:layout_constraintVertical_bias="0.821" />
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="212dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:entries="@array/spinner_items"
+        app:layout_constraintBottom_toBottomOf="@+id/text_gender_user"
+        app:layout_constraintEnd_toEndOf="@+id/editText_contact_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText_contact_user"
+        app:layout_constraintTop_toTopOf="@+id/text_gender_user"
+        app:layout_constraintVertical_bias="0.869" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
