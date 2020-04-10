@@ -72,4 +72,6 @@
     <string name="et_validityDate">Select Date</string>
     <string name="tv_validity">Validity</string>
     <string name="et_validity">Select Date</string>
+    <string name="button_search">Search User</string>
+    <string name="button_clear">Clear</string>
 </resources>

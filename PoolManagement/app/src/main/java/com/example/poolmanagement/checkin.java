@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +33,7 @@ import java.util.Map;
 public class checkin extends AppCompatActivity {
 
     EditText card_no;
+    TextView details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class checkin extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_checkin);
         setSupportActionBar(toolbar);
         card_no = (EditText) findViewById(R.id.editText_checkin);
+        details = (TextView) findViewById((R.id.textView_userdetails));
 
     }
     @Override
@@ -79,6 +84,26 @@ public class checkin extends AppCompatActivity {
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
         final CollectionReference userref = db.collection("user");
+        final CollectionReference checkinref = db.collection("checkin");
+
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = new Date();
+        String checkindate = formatter.format(date);
+
+        SimpleDateFormat formatter1 = new SimpleDateFormat("HH:mm:ss");
+        Date time = new Date();
+        String checkintime = formatter1.format(time);
+
+        //Toast.makeText(checkin.this,"Date is :"+datewa + "and time is : "+timewa,Toast.LENGTH_LONG).show();
+
+        System.out.println(formatter.format(date));
+
+        Map<Object,String> check  = new HashMap<>();
+        check.put("card",cardno);
+        check.put("date", checkindate);
+        check.put("time", checkintime);
+        checkinref.document(cardno).set(check, SetOptions.merge());
+
         db.collection("user").document(cardno).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -121,9 +146,52 @@ public class checkin extends AppCompatActivity {
 
                 }
                 else {
-                    Toast.makeText(checkin.this,"User not found!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(checkin.this,"Cannot complete checkin at the moment!",Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    public void searchuser(View view) {
+
+        final String cardno = card_no.getText().toString();
+
+
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        final CollectionReference userref = db.collection("user");
+        db.collection("user").document(cardno).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if(document.exists()) {
+                        //Toast.makeText(checkin.this,"User found",Toast.LENGTH_SHORT).show();
+                        int visit =  document.getLong("Visits").intValue();
+                        String name = document.get("Name").toString();
+                        String validity = document.get("Validity").toString();
+                        details.setText("User details are found as : \n Name : " + name + "\n Remaining visits :"+visit+"\n Validity upto : "+validity);
+                        Toast.makeText(checkin.this,"Visits are:"+visit,Toast.LENGTH_SHORT).show();
+
+
+                    }
+                    else{
+                        Toast.makeText(checkin.this,"User does not exist!",Toast.LENGTH_SHORT).show();
+
+                        card_no.setText("");
+                    }
+
+                }
+                else {
+                    Toast.makeText(checkin.this,"Cannot complete query at the moment!",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+    public void clearscreen(View view) {
+
+        card_no.setText("");
+        details.setText("");
     }
 }
