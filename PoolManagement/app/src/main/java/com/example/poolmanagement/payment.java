@@ -137,7 +137,7 @@ public class payment extends AppCompatActivity {
                         //   Toast.makeText(payment.this,"Left, new and total are: "+ left[0]+" "+visit+" "+total,Toast.LENGTH_LONG).show();
 
                         map.put("Visits", total );
-                        smap.put("validity",valid);
+                        smap.put("Validity",valid);
                         final int finalTotal = total;
 
                         final CollectionReference userref = db.collection("user");

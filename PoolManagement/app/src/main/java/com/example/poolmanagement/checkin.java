@@ -69,6 +69,10 @@ public class checkin extends AppCompatActivity {
                 Intent intent3 = new Intent(this, visitor.class);
                 startActivity(intent3);
                 return true;
+            case R.id.action_searchall:
+                Intent intent4 = new Intent(this, allusers.class);
+                startActivity(intent4);
+                return true;
 
             default:
                 // If we got here, the user's action was not recognized.

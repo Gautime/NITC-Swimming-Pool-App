@@ -90,4 +90,6 @@
         app:layout_constraintTop_toBottomOf="@+id/button_search"
         android:onClick="clearscreen"/>
 
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
