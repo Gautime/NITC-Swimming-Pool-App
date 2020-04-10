@@ -29,6 +29,8 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
 
     private FirebaseFirestore db;
     private Map<String,Object> data = new HashMap<>();
+    String validity;
+    String genderscroll;
     EditText card_no;
     EditText name;
     EditText contact;
@@ -52,7 +54,7 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
         spinner_gender.setOnItemSelectedListener(this);
 
         //gender = (EditText) findViewById(R.id.editTextgender_user);       --to be updated--
-        visits = (EditText) findViewById(R.id.editText_visits_user);
+        visits = (EditText) findViewById(R.id.editText_intvisits_user);
         //validity = (EditText) findViewById(R.id.editText_validity_user);      --to be updated--
 
         text_validity_user = findViewById(R.id.text_validity_user);
@@ -74,7 +76,7 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month = month+1;
-                String date = day+"/"+month+"/"+year;
+                String date = month+"/"+day+"/"+year;
                 text_validity_user.setText(date);
             }
         };
@@ -86,8 +88,9 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month+1;
-                        String date = day+"/"+month+"/"+year;
-                        et_validityDate.setText(date);;
+                        String date = month+"/"+day+"/"+year;
+                        et_validityDate.setText(date);
+                        validity = date;
                     }
                 },year,month,day);
                         datePickerDialog.show();
@@ -99,11 +102,13 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, parent.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, parent.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+        genderscroll = parent.getSelectedItem().toString();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+        genderscroll = "Male";
 
     }
 
@@ -113,16 +118,16 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
         final String cardno = card_no.getText().toString();
         final String user = name.getText().toString();
         final String contactno = contact.getText().toString();
-        //final String genders = ge nder.getText().toString();      --to be updated--
-        final String visit = visits.getText().toString();
-        //final String valid = validity.getText().toString();       --to be updated--
+        final String genders = genderscroll;
+        final Integer visit = Integer.parseInt(visits.getText().toString());
+        final String valid = validity;
 
         data.put("card",cardno);
         data.put("Name",user);
         data.put("Contact",contactno);
-        //data.put("Gender",gender);            --to be updated--
+        data.put("Gender",genders);
         data.put("Visits",visit);
-        //data.put("Validity",valid);           --to be updated--
+        data.put("Validity",valid);
 
         db.collection("user").document(cardno)
                 .set(data)

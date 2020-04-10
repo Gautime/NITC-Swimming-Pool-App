@@ -69,4 +69,7 @@
     <string name="editText_contact_user">Enter contact no.</string>
     <string name="editText_visits_user">Visits left</string>
     <string name="editText_intvisits_user">Enter visits</string>
+    <string name="et_validityDate">Select Date</string>
+    <string name="tv_validity">Validity</string>
+    <string name="et_validity">Select Date</string>
 </resources>

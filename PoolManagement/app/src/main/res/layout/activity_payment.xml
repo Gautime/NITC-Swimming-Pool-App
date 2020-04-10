@@ -5,31 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".payment">
-
     <TextView
         android:id="@+id/text_payment"
         android:layout_width="416dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="60dp"
         android:gravity="center"
         android:text="@string/text_payment"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_checkin" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textcard_payment"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="56dp"
         android:text="@string/textcard_payment"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_payment" />
 
@@ -37,106 +35,98 @@
         android:id="@+id/editText_card_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:ems="10"
         android:hint="@string/editText_card_payment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textcard_payment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textcard_payment"
-        app:layout_constraintTop_toTopOf="@+id/textcard_payment" />
         app:layout_constraintTop_toBottomOf="@+id/text_payment" />
 
     <TextView
         android:id="@+id/textreceipt_payment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="44dp"
         android:text="@string/textreceipt_payment"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textcard_payment"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textcard_payment" />
 
     <TextView
         android:id="@+id/textamount_payment"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="56dp"
         android:text="@string/textamount_payment"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textreceipt_payment"
-        app:layout_constraintStart_toStartOf="@+id/textreceipt_payment"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textreceipt_payment" />
 
     <TextView
         android:id="@+id/textvisits_payment"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="52dp"
         android:text="@string/textvisits_payment"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textamount_payment"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textamount_payment"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textamount_payment" />
 
     <EditText
         android:id="@+id/editText_receipt_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="@string/editText_receipt_payment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textreceipt_payment"
-        app:layout_constraintEnd_toEndOf="@+id/editText_card_payment"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText_card_payment"
-        app:layout_constraintTop_toTopOf="@+id/textreceipt_payment"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.621"
+        app:layout_constraintStart_toEndOf="@+id/textreceipt_payment"
+        app:layout_constraintTop_toBottomOf="@+id/editText_card_payment" />
 
     <EditText
         android:id="@+id/editText_amount_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="@string/editText_amount_payment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textamount_payment"
-        app:layout_constraintEnd_toEndOf="@+id/editText_receipt_payment"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText_receipt_payment"
-        app:layout_constraintTop_toTopOf="@+id/textamount_payment" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toEndOf="@+id/textamount_payment"
+        app:layout_constraintTop_toBottomOf="@+id/editText_receipt_payment" />
 
     <EditText
         android:id="@+id/editText_visits_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="@string/editText_visits_payment"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textvisits_payment"
-        app:layout_constraintEnd_toEndOf="@+id/editText_amount_payment"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText_amount_payment"
-        app:layout_constraintTop_toTopOf="@+id/textvisits_payment" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toEndOf="@+id/textvisits_payment"
+        app:layout_constraintTop_toBottomOf="@+id/editText_amount_payment" />
 
     <Button
         android:id="@+id/button_payment"
-        style="@android:style/Widget.Material.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:background="#59D8CC"
         android:onClick="updatepayment"
         android:text="@string/button_payment"
         android:textStyle="bold"
@@ -149,24 +139,28 @@
 
     <TextView
         android:id="@+id/tv_validity"
-        android:layout_width="100dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="44dp"
-        android:text="Validity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/tv_validity"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textvisits_payment"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textvisits_payment"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textvisits_payment" />
 
     <EditText
         android:id="@+id/et_validity"
         android:layout_width="215dp"
         android:layout_height="40dp"
-        android:hint="Select Date"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_validity"
-        app:layout_constraintEnd_toEndOf="@+id/editText_visits_payment"
-        app:layout_constraintStart_toStartOf="@+id/editText_visits_payment"
-        app:layout_constraintTop_toTopOf="@+id/tv_validity"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:hint="@string/et_validity"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_validity"
+        app:layout_constraintTop_toBottomOf="@+id/editText_visits_payment"
         tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

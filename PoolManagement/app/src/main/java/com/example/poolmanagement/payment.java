@@ -13,6 +13,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 
+
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.app.DatePickerDialog;
@@ -24,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +35,9 @@ public class payment extends AppCompatActivity {
     private Map<String,Object> data = new HashMap<>();
    static final int[] left = new int[1];
    final String[] name = new String[1];
-
+   String finalDate;
+   int year;
+   int month, day;
     EditText card_no;
     EditText receipt_no;
     EditText  total;
@@ -53,9 +58,9 @@ public class payment extends AppCompatActivity {
     tv_validity = findViewById(R.id.tv_validity);
     et_validity = findViewById(R.id.et_validity);
     Calendar calendar1 = Calendar.getInstance();
-    final int year = calendar1.get(Calendar.YEAR);
-    final int month = calendar1.get(Calendar.MONTH);
-    final int day = calendar1.get(Calendar.DAY_OF_YEAR);
+     year = calendar1.get(Calendar.YEAR);
+     month = calendar1.get(Calendar.MONTH);
+     day = calendar1.get(Calendar.DAY_OF_YEAR);
     tv_validity.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -71,6 +76,7 @@ public class payment extends AppCompatActivity {
             month = month+1;
             String date = day+"/"+month+"/"+year;
             tv_validity.setText(date);
+            //finalDate = month + "/"+ day+"/"+year;
         }
     };
     et_validity.setOnClickListener(new View.OnClickListener() {
@@ -81,8 +87,9 @@ public class payment extends AppCompatActivity {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int day) {
                     month = month+1;
-                    String date = day+"/"+month+"/"+year;
+                    String date = month+"/"+day+"/"+year;
                     et_validity.setText(date);
+                    finalDate = date;
                 }
             },year,month,day);
             datePickerDialog.show();
@@ -91,31 +98,7 @@ public class payment extends AppCompatActivity {
 
     }
 
-    public int getvisits(String card, FirebaseFirestore db){
-        db.collection("user").document(card).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if(document.exists()) {
-                        //Toast.makeText(MainActivity.this,"User found",Toast.LENGTH_SHORT).show();
-                        name[0] =document.get("Name").toString();
-                        left[0] = document.getLong("Visits").intValue();
-                        Toast.makeText(payment.this,"Left inside get visits: "+left[0],Toast.LENGTH_SHORT).show();
 
-                    }
-                    else {
-                        Toast.makeText(payment.this,"User not found",Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else {
-                    Toast.makeText(payment.this,"Query not completed",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        return left[0];
-
-    }
 
     public void updatepayment(View view) {
         final String cardno = card_no.getText().toString();
@@ -123,7 +106,8 @@ public class payment extends AppCompatActivity {
         final int visit = Integer.parseInt(newvisits.getText().toString());
        // final String visit = newvisits.getText().toString();
         final String amount = total.getText().toString();
-
+        final String valid = finalDate;
+        Toast.makeText(payment.this,"Final date is :"+ finalDate,Toast.LENGTH_SHORT).show();
 
 
         final FirebaseFirestore db;
@@ -145,16 +129,20 @@ public class payment extends AppCompatActivity {
                         data.put("amount",amount);
                         data.put("receipt",receipt);
                         data.put("visits",visit);
+                        data.put("validity", valid);
 
                         Map<Object, Integer> map = new HashMap<>();
+                        Map<Object, String> smap = new HashMap<>();
+
                         //   Toast.makeText(payment.this,"Left, new and total are: "+ left[0]+" "+visit+" "+total,Toast.LENGTH_LONG).show();
 
                         map.put("Visits", total );
-
+                        smap.put("validity",valid);
                         final int finalTotal = total;
 
                         final CollectionReference userref = db.collection("user");
                         userref.document(cardno).set(map, SetOptions.merge());
+                        userref.document(cardno).set(smap, SetOptions.merge());
 
                         db.collection("payment").document(cardno)
                                 .set(data)

@@ -11,7 +11,7 @@
         android:id="@+id/editText_checkin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
         android:hint="@string/editText_checkin"
         android:inputType="textPersonName"
@@ -19,14 +19,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_checkin" />
 
     <Button
         android:id="@+id/button_checkin"
         style="@android:style/Widget.Material.Button.Colored"
-        android:layout_width="112dp"
-        android:layout_height="43dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:onClick="checkinuser"
         android:text="@string/button_checkin"
@@ -34,10 +33,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_checkin"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintVertical_bias="0.169" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_checkin"
