@@ -15,5 +15,8 @@
     <item android:id="@+id/action_visitors"
         android:title="@string/action_visitors"
         app:showAsAction="never"/>
+    <item android:id="@+id/action_searchall"
+        android:title="@string/action_searchall"
+        app:showAsAction="never"/>
 
 </menu>

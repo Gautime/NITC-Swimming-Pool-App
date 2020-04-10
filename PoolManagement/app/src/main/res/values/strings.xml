@@ -74,4 +74,9 @@
     <string name="et_validity">Select Date</string>
     <string name="button_search">Search User</string>
     <string name="button_clear">Clear</string>
+    <string name="button_visitor">List Today\'s Visitor</string>
+    <string name="textView_visitor">Today\'s Visitors</string>
+    <string name="action_searchall">Check All Users</string>
+    <string name="textView_alluser">Pool Users</string>
+
 </resources>

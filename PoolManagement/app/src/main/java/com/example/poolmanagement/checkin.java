@@ -88,21 +88,16 @@ public class checkin extends AppCompatActivity {
 
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         Date date = new Date();
-        String checkindate = formatter.format(date);
+        final String checkindate = formatter.format(date);
 
         SimpleDateFormat formatter1 = new SimpleDateFormat("HH:mm:ss");
         Date time = new Date();
-        String checkintime = formatter1.format(time);
+        final String checkintime = formatter1.format(time);
 
         //Toast.makeText(checkin.this,"Date is :"+datewa + "and time is : "+timewa,Toast.LENGTH_LONG).show();
 
         System.out.println(formatter.format(date));
 
-        Map<Object,String> check  = new HashMap<>();
-        check.put("card",cardno);
-        check.put("date", checkindate);
-        check.put("time", checkintime);
-        checkinref.document(cardno).set(check, SetOptions.merge());
 
         db.collection("user").document(cardno).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -119,6 +114,13 @@ public class checkin extends AppCompatActivity {
                             Map<Object, Integer> map = new HashMap<>();
                             map.put("Visits", visit );
                             userref.document(cardno).set(map, SetOptions.merge());
+                            final String name = document.get("Name").toString();
+                            Map<Object,String> check  = new HashMap<>();
+                            check.put("card",cardno);
+                            check.put("date", checkindate);
+                            check.put("time", checkintime);
+                            check.put("name", name);
+                            checkinref.document(cardno).set(check, SetOptions.merge());
                             AlertDialog alertDialog = new AlertDialog.Builder(checkin.this).create();
                             alertDialog.setTitle("Checked in!");
                             alertDialog.setMessage("Remaining visits are : "+visit);
