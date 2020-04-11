@@ -34,6 +34,7 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
     private Map<String,Object> data = new HashMap<>();
     String validity;
     String genderscroll;
+    String categoryscroll;
     EditText card_no;
     EditText name;
     EditText contact;
@@ -53,6 +54,8 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
         name = (EditText) findViewById(R.id.editText_name_user);
         contact = (EditText) findViewById(R.id.editText_contact_user);
 
+        Spinner spinner_category = findViewById(R.id.spinner2);
+        spinner_category.setOnItemSelectedListener(this);
         Spinner spinner_gender = findViewById(R.id.spinner4);
         spinner_gender.setOnItemSelectedListener(this);
 
@@ -105,13 +108,29 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-       // Toast.makeText(this, parent.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
-        genderscroll = parent.getSelectedItem().toString();
+
+        if(parent.getId() == R.id.spinner2)
+        {
+            categoryscroll = parent.getSelectedItem().toString();
+        }
+        else if(parent.getId() == R.id.spinner4)
+        {
+            genderscroll = parent.getSelectedItem().toString();
+        }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        genderscroll = "Male";
+        if(parent.getId() == R.id.spinner2)
+        {
+            categoryscroll = "Student";
+        }
+        else if(parent.getId() == R.id.spinner4)
+        {
+            genderscroll = "Male";
+        }
+
+
 
     }
 
@@ -121,7 +140,7 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
         final String cardno = card_no.getText().toString();
         final String user = name.getText().toString();
         final String contactno = contact.getText().toString();
-
+        final String category= categoryscroll;
         final String genders = genderscroll;
         final Integer visit = Integer.parseInt(visits.getText().toString());
         final String valid = validity;
@@ -148,6 +167,7 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
         data.put("Gender",genders);
         data.put("Visits",visit);
         data.put("Validity",valid);
+        data.put("Category",category);
 
         db.collection("user").document(cardno)
                 .set(data)

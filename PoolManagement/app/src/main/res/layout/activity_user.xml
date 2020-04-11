@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="32dp"
             android:text="@string/text_card_user"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,13 +39,13 @@
             android:id="@+id/text_name_user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="52dp"
             android:text="@string/text_name_user"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_card_user" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_category" />
 
         <TextView
             android:id="@+id/text_contact_user"
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="44dp"
             android:layout_marginLeft="44dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="52dp"
             android:text="@string/text_validity_user"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -113,12 +113,12 @@
             android:id="@+id/editText_card_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="@string/editText_card_user"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.648"
+            app:layout_constraintHorizontal_bias="0.677"
             app:layout_constraintStart_toEndOf="@+id/text_card_user"
             app:layout_constraintTop_toBottomOf="@+id/text_user" />
 
@@ -126,14 +126,16 @@
             android:id="@+id/editText_name_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:ems="10"
             android:hint="@string/editText_name_user"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.71"
+            app:layout_constraintHorizontal_bias="0.811"
             app:layout_constraintStart_toEndOf="@+id/text_name_user"
-            app:layout_constraintTop_toBottomOf="@+id/editText_card_user" />
+            app:layout_constraintTop_toBottomOf="@+id/spinner2" />
 
         <Button
             android:id="@+id/button_user"
@@ -214,6 +216,29 @@
             app:layout_constraintHorizontal_bias="0.597"
             app:layout_constraintStart_toEndOf="@+id/text_gender_user"
             app:layout_constraintTop_toBottomOf="@+id/editText_contact_user" />
+
+        <TextView
+            android:id="@+id/textView_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="40dp"
+            android:text="Category"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_card_user" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:entries="@array/category_spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toEndOf="@+id/textView_category"
+            app:layout_constraintTop_toBottomOf="@+id/editText_card_user" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
