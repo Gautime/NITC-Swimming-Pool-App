@@ -1,6 +1,7 @@
 package com.example.poolmanagement;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -8,10 +9,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.UserManager;
 import android.view.View;
 import android.view.contentcapture.DataRemovalRequest;
 import android.widget.AdapterView;
@@ -118,10 +121,27 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
         final String cardno = card_no.getText().toString();
         final String user = name.getText().toString();
         final String contactno = contact.getText().toString();
+
         final String genders = genderscroll;
         final Integer visit = Integer.parseInt(visits.getText().toString());
         final String valid = validity;
 
+        if(contactno.length()>10 || contactno.length()<10){
+            Toast.makeText(User.this, "Enter valid number", Toast.LENGTH_LONG).show();
+            contact.setText("");
+            AlertDialog alertDialog = new AlertDialog.Builder(User.this).create();
+            alertDialog.setTitle("Data Error!");
+            alertDialog.setMessage("Enter valid contact number");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+            return;
+            //throw new java.lang.Error("this is very bad");
+        }
         data.put("card",cardno);
         data.put("Name",user);
         data.put("Contact",contactno);
