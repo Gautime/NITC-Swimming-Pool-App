@@ -3,6 +3,7 @@ package com.example.poolmanagement;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +14,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.zip.Inflater;
 
 public class Useradaptor extends RecyclerView.Adapter<Useradaptor.MyViewHolder>  {
 
 
-    ArrayList<useritem> allusers;
+    static ArrayList<useritem> allusers;
     Context context;
 
     public Useradaptor(Context context, ArrayList<useritem> checks) {
@@ -51,15 +56,17 @@ public class Useradaptor extends RecyclerView.Adapter<Useradaptor.MyViewHolder> 
             text2 = (TextView) itemView.findViewById(R.id.user_card);
             text3 = (TextView) itemView.findViewById(R.id.user_visits);
             text4 = (TextView) itemView.findViewById(R.id.user_validity);
+            ib1 = (ImageButton) itemView.findViewById(R.id.imageButton);
 
-            //itemView.setOnClickListener(this);
         }
+
+
     }
 
 
 
     @Override
-    public void onBindViewHolder(Useradaptor.MyViewHolder holder, int position) {
+    public void onBindViewHolder(Useradaptor.MyViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
 
@@ -67,6 +74,35 @@ public class Useradaptor extends RecyclerView.Adapter<Useradaptor.MyViewHolder> 
         holder.text2.setText(allusers.get(position).cards);
         holder.text3.setText(allusers.get(position).visits);
         holder.text4.setText(allusers.get(position).validity);
+
+        holder.ib1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Log.d("User adaptor","button fucking clicked!!");
+                 useritem removed = allusers.get(position);
+                // remove your item from data base
+                 allusers.remove(position);  // remove the item from list
+                 notifyItemRemoved(position);// notify the adapter about the removed item
+                 notifyItemRangeChanged(0, allusers.size());
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                db.collection("user").document(removed.cards)
+                        .delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                    Log.w("useradaptor", "User deleted!!");
+                                //   Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("user adaptor", "Error deleting document", e);
+                            }
+                        });
+
+            }
+        });
 
 
     }
