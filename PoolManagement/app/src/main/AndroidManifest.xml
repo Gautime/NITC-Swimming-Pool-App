@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".allusers"></activity>
+        <activity android:name=".forgotpassword"></activity>
+        <activity android:name=".allusers" />
         <activity android:name=".visitor" />
         <activity android:name=".payment" />
         <activity android:name=".User" />

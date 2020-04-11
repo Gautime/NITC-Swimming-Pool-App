@@ -67,4 +67,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void forgotpass(View view) {
+        Intent intent = new Intent(MainActivity.this, forgotpassword.class);
+       // intent.putExtra("Email", username);
+        startActivity(intent);
+
+    }
 }

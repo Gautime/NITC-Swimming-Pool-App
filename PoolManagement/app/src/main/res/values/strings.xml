@@ -78,5 +78,10 @@
     <string name="textView_visitor">Today\'s Visitors</string>
     <string name="action_searchall">Check All Users</string>
     <string name="textView_alluser">Pool Users</string>
+    <string name="textView_category">Category</string>
+    <string name="button_forgot">Forgot Password</string>
+    <string name="textView_forget">Forgot Password?</string>
+    <string name="editText_forget_password">Enter your username</string>
+    <string name="button_reset">Resend my password</string>
 
 </resources>
