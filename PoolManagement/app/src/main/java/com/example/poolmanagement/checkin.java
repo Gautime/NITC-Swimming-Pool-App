@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,6 +44,9 @@ public class checkin extends AppCompatActivity {
         setSupportActionBar(toolbar);
         card_no = (EditText) findViewById(R.id.editText_checkin);
         details = (TextView) findViewById((R.id.textView_userdetails));
+        Intent intent = getIntent();
+        String str = intent.getStringExtra("Email");
+        toolbar.setTitle("Welcome back to Pool - "+str+"!");
 
     }
     @Override

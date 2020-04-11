@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
                         if(password.equals(document.get("password"))) {
                             Toast.makeText(MainActivity.this,"User found and password matched",Toast.LENGTH_SHORT).show();
                              Intent intent = new Intent(MainActivity.this, checkin.class);
-                             startActivity(intent);
+                            intent.putExtra("Email", username);
+                            startActivity(intent);
                             finish();
                         }
                         else {
