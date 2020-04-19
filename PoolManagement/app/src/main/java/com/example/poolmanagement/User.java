@@ -4,9 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -15,6 +20,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.UserManager;
+import android.util.Log;
 import android.view.View;
 import android.view.contentcapture.DataRemovalRequest;
 import android.widget.AdapterView;
@@ -25,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -63,13 +70,13 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
         visits = (EditText) findViewById(R.id.editText_intvisits_user);
         //validity = (EditText) findViewById(R.id.editText_validity_user);      --to be updated--
 
-        text_validity_user = findViewById(R.id.text_validity_user);
+//        text_validity_user = findViewById(R.id.text_validity_user);
         et_validityDate = findViewById(R.id.et_validityDate);
         Calendar calendar = Calendar.getInstance();
         final  int year = calendar.get(Calendar.YEAR);
         final  int month = calendar.get(Calendar.MONTH);
         final  int day = calendar.get(Calendar.DAY_OF_MONTH);
-        text_validity_user.setOnClickListener(new View.OnClickListener() {
+        et_validityDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -82,7 +89,7 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month = month+1;
-                String date = month+"/"+day+"/"+year;
+                String date = day+"/"+month+"/"+year;
                 text_validity_user.setText(date);
             }
         };
@@ -94,7 +101,7 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month+1;
-                        String date = month+"/"+day+"/"+year;
+                        String date = day+"/"+month+"/"+year;
                         et_validityDate.setText(date);
                         validity = date;
                     }
@@ -161,28 +168,64 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
             return;
             //throw new java.lang.Error("this is very bad");
         }
-        data.put("card",cardno);
-        data.put("Name",user);
-        data.put("Contact",contactno);
-        data.put("Gender",genders);
-        data.put("Visits",visit);
-        data.put("Validity",valid);
-        data.put("Category",category);
 
-        db.collection("user").document(cardno)
-                .set(data)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(User.this, "User created successfully", Toast.LENGTH_SHORT).show();
-                        finish();                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(User.this, "Something gone wrong!", Toast.LENGTH_SHORT).show();
+       // final int[] flag = {0};
+        final CollectionReference userref = db.collection("user");
+        userref.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    Log.d("visitor", "task successfull ");
+                    //Toast.makeText(ListComplaints.this, "Fetching Successfull", Toast.LENGTH_SHORT).show();
+                    if(task.getResult()!=null) {
+                        // Log.d("visitor", "Insidee not null block! ");
+                        AlertDialog alertDialog = new AlertDialog.Builder(User.this).create();
+                        alertDialog.setTitle("Cannot create user!");
+                        alertDialog.setMessage("A user already exists! Please check your card no. again.");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+                        //flag[0] =1;
                     }
-                });
+                    else{
+                        data.put("card",cardno);
+                        data.put("Name",user);
+                        data.put("Contact",contactno);
+                        data.put("Gender",genders);
+                        data.put("Visits",visit);
+                        data.put("Validity",valid);
+                        data.put("Category",category);
+
+
+
+
+                        db.collection("user").document(cardno)
+                                .set(data)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(User.this, "User created successfully", Toast.LENGTH_SHORT).show();
+                                        finish();                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(User.this, "Something gone wrong!", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    }
+                } else {
+                    Toast.makeText(User.this, "Failed to fetch data", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
 
     }
 }

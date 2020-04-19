@@ -18,6 +18,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class allusers extends AppCompatActivity {
 
@@ -66,6 +67,7 @@ public class allusers extends AppCompatActivity {
                             Log.d("visitor", "checkin item added successfully");
 
                         }
+                        Collections.sort(users, new NameComparator());
                         mAdapter = new Useradaptor(allusers.this,users);
                         recyclerView.setAdapter(mAdapter);
                     }

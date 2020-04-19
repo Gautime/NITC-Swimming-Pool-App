@@ -55,13 +55,13 @@ public class payment extends AppCompatActivity {
         total = (EditText) findViewById(R.id.editText_amount_payment);
         newvisits = (EditText) findViewById(R.id.editText_visits_payment);
 
-    tv_validity = findViewById(R.id.tv_validity);
+    //tv_validity = findViewById(R.id.tv_validity);
     et_validity = findViewById(R.id.et_validity);
     Calendar calendar1 = Calendar.getInstance();
      year = calendar1.get(Calendar.YEAR);
      month = calendar1.get(Calendar.MONTH);
      day = calendar1.get(Calendar.DAY_OF_YEAR);
-    tv_validity.setOnClickListener(new View.OnClickListener() {
+    et_validity.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             DatePickerDialog datePickerDialog = new DatePickerDialog(
@@ -87,7 +87,7 @@ public class payment extends AppCompatActivity {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int day) {
                     month = month+1;
-                    String date = month+"/"+day+"/"+year;
+                    String date = day+"/"+month+"/"+year;
                     et_validity.setText(date);
                     finalDate = date;
                 }

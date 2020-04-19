@@ -25,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -94,7 +95,7 @@ public class checkin extends AppCompatActivity {
         final CollectionReference userref = db.collection("user");
         final CollectionReference checkinref = db.collection("checkin");
 
-        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         final String checkindate = formatter.format(date);
 
@@ -105,7 +106,8 @@ public class checkin extends AppCompatActivity {
         //Toast.makeText(checkin.this,"Date is :"+datewa + "and time is : "+timewa,Toast.LENGTH_LONG).show();
 
         System.out.println(formatter.format(date));
-
+        final Date[] date1 = new Date[1];
+        final Date[] date2 = {new Date()};
 
         db.collection("user").document(cardno).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -115,9 +117,16 @@ public class checkin extends AppCompatActivity {
                     if(document.exists()) {
                         //Toast.makeText(checkin.this,"User found",Toast.LENGTH_SHORT).show();
                         int visit =  document.getLong("Visits").intValue();
+                        String validity = document.get("Validity").toString();
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                        try {
+                             date1[0] =formatter.parse(validity);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
                         Toast.makeText(checkin.this,"Visits are:"+visit,Toast.LENGTH_SHORT).show();
 
-                        if(visit>0) {
+                        if(visit>0 && date1[0].compareTo(date2[0])>=0) {
                             visit= visit -1;
                             Map<Object, Integer> map = new HashMap<>();
                             map.put("Visits", visit );
@@ -131,7 +140,7 @@ public class checkin extends AppCompatActivity {
                             checkinref.document(cardno).set(check, SetOptions.merge());
                             AlertDialog alertDialog = new AlertDialog.Builder(checkin.this).create();
                             alertDialog.setTitle("Checked in!");
-                            alertDialog.setMessage("Remaining visits are : "+visit);
+                            alertDialog.setMessage("Remaining visits are : "+visit + "\n Validity is : "+validity);
                             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -143,7 +152,34 @@ public class checkin extends AppCompatActivity {
                         }
 
                         else if(visit==0) {
-                            Toast.makeText(checkin.this,"Visits over!",Toast.LENGTH_SHORT).show();
+
+                            AlertDialog alertDialog = new AlertDialog.Builder(checkin.this).create();
+                            alertDialog.setTitle("Cannot check in!");
+                            alertDialog.setMessage("No visits remaining. Please pay and update the visits!");
+                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog.show();
+                            //Toast.makeText(checkin.this,"Visits over!",Toast.LENGTH_SHORT).show();
+
+                            card_no.setText("");
+                        }
+                        else if(date1[0].compareTo(date2[0])<0) {
+
+                            AlertDialog alertDialog = new AlertDialog.Builder(checkin.this).create();
+                            alertDialog.setTitle("Cannot check in!");
+                            alertDialog.setMessage("Validity of the card is over. Please update payment!");
+                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog.show();
+                            //Toast.makeText(checkin.this,"Visits over!",Toast.LENGTH_SHORT).show();
 
                             card_no.setText("");
                         }

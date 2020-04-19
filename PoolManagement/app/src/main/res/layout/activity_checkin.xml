@@ -12,29 +12,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:ems="10"
         android:hint="@string/editText_checkin"
         android:inputType="textPersonName"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar_checkin"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbar_checkin"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_checkin" />
 
-
-    <Button
-        android:id="@+id/button_checkin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:background="#10D6C3"
-        android:onClick="checkinuser"
-        android:text="@string/button_checkin"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toEndOf="@+id/button_search"
-        app:layout_constraintTop_toBottomOf="@+id/editText_checkin" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_checkin"
@@ -50,21 +38,6 @@
         app:title="Pool Management"
         app:titleTextColor="#E8DEDE" />
 
-    <Button
-        android:id="@+id/button_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="84dp"
-        android:background="#10D6C3"
-        android:gravity="center"
-        android:onClick="searchuser"
-        android:text="@string/button_search"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_checkin" />
-
     <TextView
         android:id="@+id/textView_userdetails"
         android:layout_width="wrap_content"
@@ -78,18 +51,52 @@
 
     <Button
         android:id="@+id/button_clear"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="#10D6C3"
+        android:onClick="clearscreen"
         android:text="@string/button_clear"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_search"
-        android:onClick="clearscreen"/>
+        app:layout_constraintEnd_toStartOf="@+id/button_checkin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_search"
+        app:layout_constraintTop_toBottomOf="@+id/editText_checkin" />
 
+    <Button
+        android:id="@+id/button_checkin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="#10D6C3"
+        android:onClick="checkinuser"
+        android:text="@string/button_checkin"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/editText_checkin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_clear"
+        app:layout_constraintTop_toBottomOf="@+id/editText_checkin" />
+
+    <Button
+        android:id="@+id/button_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="#10D6C3"
+        android:gravity="center"
+        android:onClick="searchuser"
+        android:text="@string/button_search"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_clear"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/editText_checkin"
+        app:layout_constraintTop_toBottomOf="@+id/editText_checkin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

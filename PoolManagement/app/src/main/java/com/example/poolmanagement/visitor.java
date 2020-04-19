@@ -29,6 +29,7 @@ import java.io.ObjectStreamException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -58,7 +59,7 @@ public class visitor extends AppCompatActivity {
         recyclerView.addItemDecoration(dividerItemDecoration);
 
 
-        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         final String checkindate = formatter.format(date);
 
@@ -86,6 +87,7 @@ public class visitor extends AppCompatActivity {
                             Log.d("visitor", "checkin item added successfully");
 
                         }
+                        Collections.sort(checkins, new TimeComparator());
                         mAdapter = new Visitoradaptor(visitor.this,checkins);
                         recyclerView.setAdapter(mAdapter);
                     }

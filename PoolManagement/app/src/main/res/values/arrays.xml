@@ -11,7 +11,9 @@
     </string-array>
     <string-array name="spinner_items">
         <item>Male</item>
-        <item>Female</item></string-array>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
     <string-array name="category_spinner">
         <item>Student</item>
         <item>Staff</item>
