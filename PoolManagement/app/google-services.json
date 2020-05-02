@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "987333911249",
-    "firebase_url": "https://swimming-pool-5fc20.firebaseio.com",
-    "project_id": "swimming-pool-5fc20",
-    "storage_bucket": "swimming-pool-5fc20.appspot.com"
+    "project_number": "272274197591",
+    "firebase_url": "https://pool-management.firebaseio.com",
+    "project_id": "pool-management",
+    "storage_bucket": "pool-management.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:987333911249:android:7e5585b8804e492bc29bf0",
+        "mobilesdk_app_id": "1:272274197591:android:d05d9b1800ad35edbce712",
         "android_client_info": {
-          "package_name": "com.example.poolmanagement"
+          "package_name": "com.kapil.poolmanagement"
         }
       },
       "oauth_client": [
         {
-          "client_id": "987333911249-g17q29hrbaqe9nlh5pcgfkse8bnl17in.apps.googleusercontent.com",
+          "client_id": "272274197591-0ap9p9j3l7uoa397pav8ov956k0tc67e.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBzz56jQMLLT6ALeviT4rZrUQTOToz9o3A"
+          "current_key": "AIzaSyAgLqiUoogFbXDIT9viSq_pqlewhvgqfQM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "987333911249-g17q29hrbaqe9nlh5pcgfkse8bnl17in.apps.googleusercontent.com",
+              "client_id": "272274197591-0ap9p9j3l7uoa397pav8ov956k0tc67e.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

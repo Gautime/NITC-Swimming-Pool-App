@@ -1,4 +1,4 @@
-package com.example.poolmanagement;
+package com.kapil.poolmanagement;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.kapil.poolmanagement.NameComparator;
+import com.kapil.poolmanagement.Useradaptor;
+import com.kapil.poolmanagement.useritem;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;

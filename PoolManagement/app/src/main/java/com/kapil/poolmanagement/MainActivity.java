@@ -1,4 +1,4 @@
-package com.example.poolmanagement;
+package com.kapil.poolmanagement;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

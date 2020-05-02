@@ -1,4 +1,4 @@
-package com.example.poolmanagement;
+package com.kapil.poolmanagement;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -9,6 +9,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -34,6 +36,12 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.kapil.poolmanagement.R;
+
+//import ample.poolmanagement.R;
+
+//import ample.poolmanagement.R;package.R;
 
 public class User extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -171,14 +179,14 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
 
        // final int[] flag = {0};
         final CollectionReference userref = db.collection("user");
-        userref.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        DocumentReference docIdRef = userref.document(cardno);
+        docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
-                    Log.d("visitor", "task successfull ");
-                    //Toast.makeText(ListComplaints.this, "Fetching Successfull", Toast.LENGTH_SHORT).show();
-                    if(task.getResult()!=null) {
-                        // Log.d("visitor", "Insidee not null block! ");
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                      //  Log.d(TAG, "Document exists!");
                         AlertDialog alertDialog = new AlertDialog.Builder(User.this).create();
                         alertDialog.setTitle("Cannot create user!");
                         alertDialog.setMessage("A user already exists! Please check your card no. again.");
@@ -189,18 +197,17 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
                                     }
                                 });
                         alertDialog.show();
-                        //flag[0] =1;
-                    }
-                    else{
-                        data.put("card",cardno);
-                        data.put("Name",user);
-                        data.put("Contact",contactno);
-                        data.put("Gender",genders);
-                        data.put("Visits",visit);
-                        data.put("Validity",valid);
-                        data.put("Category",category);
+                        return;
 
-
+                    } else {
+                        //Log.d(TAG, "Document does not exist!");
+                        data.put("card", cardno);
+                        data.put("Name", user);
+                        data.put("Contact", contactno);
+                        data.put("Gender", genders);
+                        data.put("Visits", visit);
+                        data.put("Validity", valid);
+                        data.put("Category", category);
 
 
                         db.collection("user").document(cardno)
@@ -209,7 +216,8 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         Toast.makeText(User.this, "User created successfully", Toast.LENGTH_SHORT).show();
-                                        finish();                    }
+                                        finish();
+                                    }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -219,13 +227,9 @@ public class User extends AppCompatActivity implements AdapterView.OnItemSelecte
                                 });
                     }
                 } else {
-                    Toast.makeText(User.this, "Failed to fetch data", Toast.LENGTH_SHORT).show();
+                    Log.d("User java file", "Failed with: ", task.getException());
                 }
             }
         });
-
-
-
-
     }
 }

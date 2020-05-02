@@ -1,25 +1,27 @@
-package com.example.poolmanagement;
+package com.kapil.poolmanagement;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kapil.poolmanagement.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
+
+//import android.R;
+
+//import ample.poolmanagement.R;
 
 public class Useradaptor extends RecyclerView.Adapter<Useradaptor.MyViewHolder>  {
 

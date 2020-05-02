@@ -1,4 +1,4 @@
-package com.example.poolmanagement;
+package com.kapil.poolmanagement;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.poolmanagement", appContext.getPackageName());
+        assertEquals("com.kapil.poolmanagement", appContext.getPackageName());
     }
 }
