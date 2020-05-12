@@ -1,11 +1,11 @@
 # NITC-Swimming-Pool-App
 This android app has been developed to help ease the daily swimming pool activities at National Institute of Technology,Calicut.
 
-[![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/RocketChat/Apps.Google.Calendar/blob/master/LICENSE)
-[![Contact :Rocket.Chat](https://img.shields.io/badge/contact-Rocket.Chat-blue.svg?style=flat)](https://rocket.chat/)
-[![GitHub stars](https://img.shields.io/github/stars/RocketChat/Apps.Google.Calendar.svg)](https://github.com/RocketChat/Apps.Google.Calendar/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/RocketChat/Apps.Google.Calendar.svg)](https://github.com/RocketChat/Apps.Google.Calendar/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/RocketChat/Apps.Google.Calendar.svg)](https://github.com/RocketChat/Apps.Google.Calendar/issues)
+
+[![Contact :NIT Calicut](https://img.shields.io/badge/contact-Rocket.Chat-blue.svg?style=flat)](http://nitc.ac.in/)
+[![GitHub stars](https://img.shields.io/github/stars/RocketChat/Apps.Google.Calendar.svg)](https://github.com/Gautime/NITC-Swimming-Pool-App/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/RocketChat/Apps.Google.Calendar.svg)](https://github.com/Gautime/NITC-Swimming-Pool-App/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/RocketChat/Apps.Google.Calendar.svg)](https://github.com/Gautime/NITC-Swimming-Pool-App/issues)
 
 ---
 <p align="center">
