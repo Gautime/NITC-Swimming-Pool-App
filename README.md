@@ -1,6 +1,5 @@
 # NITC-Swimming-Pool-App
-Android app for NIT Calicut Swimming Pool User Management.
-
+This android app has been developed to help ease the daily swimming pool activities at National Institute of Technology,Calicut.
 
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/RocketChat/Apps.Google.Calendar/blob/master/LICENSE)
 [![Contact :Rocket.Chat](https://img.shields.io/badge/contact-Rocket.Chat-blue.svg?style=flat)](https://rocket.chat/)
