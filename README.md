@@ -2,10 +2,10 @@
 This android app has been developed to help ease the daily swimming pool activities at National Institute of Technology,Calicut.
 
 
-[![Contact :NIT Calicut](https://img.shields.io/badge/contact-Rocket.Chat-blue.svg?style=flat)](http://nitc.ac.in/)
-[![GitHub stars](https://img.shields.io/github/stars/RocketChat/Apps.Google.Calendar.svg)](https://github.com/Gautime/NITC-Swimming-Pool-App/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/RocketChat/Apps.Google.Calendar.svg)](https://github.com/Gautime/NITC-Swimming-Pool-App/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/RocketChat/Apps.Google.Calendar.svg)](https://github.com/Gautime/NITC-Swimming-Pool-App/issues)
+[![Contact :NIT Calicut](https://img.shields.io/badge/contact-NITCalicut-blue.svg?style=flat)](http://nitc.ac.in/)
+[![GitHub stars](https://img.shields.io/github/stars/Gautime/NITC-Swimming-Pool-App.svg)](https://github.com/Gautime/NITC-Swimming-Pool-App/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Gautime/NITC-Swimming-Pool-App.svg)](https://github.com/Gautime/NITC-Swimming-Pool-App/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/Gautime/NITC-Swimming-Pool-App.svg)](https://github.com/Gautime/NITC-Swimming-Pool-App/issues)
 
 ---
 <p align="center">
