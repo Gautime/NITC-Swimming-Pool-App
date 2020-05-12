@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pool Management</string>
+    <string name="app_name">NITC Pool Manager</string>
     <string name="text_login">NITC Swimming Pool Management Login</string>
     <string name="editText_username">Enter admin username</string>
     <string name="editText_password">Enter Password</string>

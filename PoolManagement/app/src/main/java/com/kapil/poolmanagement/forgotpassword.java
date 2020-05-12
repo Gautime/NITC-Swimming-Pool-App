@@ -42,15 +42,16 @@ public class forgotpassword extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if(document.exists()) {
                         //Toast.makeText(forgotpassword.this,"User found",Toast.LENGTH_SHORT).show();
-                       String email = document.get("email").toString();
-                       String password = document.get("password").toString();
-                        Intent i = new Intent(Intent.ACTION_SEND);
-                        i.setType("message/rfc822");
-                        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{email});
-                        i.putExtra(Intent.EXTRA_SUBJECT, "Forgot password for NITC Swimming Pool App");
-                        i.putExtra(Intent.EXTRA_TEXT   , " The password you requested is : "+ password);
+                     //  String email = document.get("email").toString();
+                     //  String password = document.get("password").toString();
+                      //  Intent i = new Intent(Intent.ACTION_SEND);
+                      //  i.setType("message/rfc822");
+                       // i.putExtra(Intent.EXTRA_EMAIL  , new String[]{email});
+                        //i.putExtra(Intent.EXTRA_SUBJECT, "Forgot password for NITC Swimming Pool App");
+                        //i.putExtra(Intent.EXTRA_TEXT   , " The password you requested is : "+ password);
                         try {
-                            startActivity(Intent.createChooser(i, "Sent mail..."));
+                            Toast.makeText(forgotpassword.this, "Sent email to admin email-id.", Toast.LENGTH_LONG).show();
+                            //  startActivity(Intent.createChooser(i, "Sent mail..."));
                         } catch (android.content.ActivityNotFoundException ex) {
                             Toast.makeText(forgotpassword.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
                         }
